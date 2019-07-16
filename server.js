@@ -10,12 +10,13 @@ app.get('/apps', (req, res) => {
   const validGenre = ['Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card'];
   let results = [...playStore];
   let sort;
+  let genre;
 
   if (req.query.sort) {
     sort = req.query.sort;
     sort = sort[0].toUpperCase() + sort.slice(1);
     if (validSorts.includes(sort)) {
-      results = results.sort((a, b) => {
+      results.sort((a, b) => {
         if (sort === 'Rating') return a[sort] < b[sort] ? 1 : -1;
         else return a[sort] > b[sort] ? 1 : -1;
       });
@@ -23,7 +24,17 @@ app.get('/apps', (req, res) => {
     else {
       return res.status(400).json({
         error: 'Invalid Params: Sort must either be \'Rating\' or \'App\''
-      })
+      });
+    }
+  }
+  if(req.query.genre){
+    genre = req.query.genre;
+    genre = genre[0].toUpperCase() + genre.slice(1);
+    if(validGenre.includes(genre)){
+      results = results.filter((app)=>app.Genres.includes(genre));
+
+    }else{
+      return res.status(400).json({error:"Invalid Params: Genre must be one of 'Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card' "});
     }
   }
 
