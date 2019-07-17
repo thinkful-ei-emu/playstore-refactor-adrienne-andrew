@@ -23,7 +23,7 @@ app.get('/apps', (req, res) => {
     }
     else {
       return res.status(400).json({
-        error: 'Invalid Params: Sort must either be \'Rating\' or \'App\''
+        error: 'Invalid Params: Sort must either be "Rating" or "App"'
       });
     }
   }
@@ -34,7 +34,7 @@ app.get('/apps', (req, res) => {
       results = results.filter((app)=>app.Genres.includes(genre));
 
     }else{
-      return res.status(400).json({error:"Invalid Params: Genre must be one of 'Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card' "});
+      return res.status(400).json({error:'Invalid Params: Genre must be one of "Action", "Puzzle", "Strategy", "Casual", "Arcade", "Card"'});
     }
   }
 
