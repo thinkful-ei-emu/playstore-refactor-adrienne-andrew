@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # DavidQ-AndrewPlaystore
+=======
+# Adrienne-Andrew Playstore Refactor
+>>>>>>> 6da3a6af3183e30d7ec68a202405456eba2acf2e
 
 Assignment
 The file playstore.js contains an array of Google Play apps. Build an Express server with a GET endpoint /apps. By default return the complete list of apps in the array. The endpoint accepts the following optional query parameters:
