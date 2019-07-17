@@ -23,7 +23,7 @@ app.get('/apps', (req, res) => {
     }
     else {
       return res.status(400).json({
-        error: 'Invalid Params: Sort must either be \'Rating\' or \'App\''
+        error: 'Invalid Params: Sort must either be "Rating" or "App"'
       });
     }
   }
