@@ -27,14 +27,15 @@ app.get('/apps', (req, res) => {
       });
     }
   }
-  if(req.query.genre){
+  if (req.query.genre) {
     genre = req.query.genre;
     genre = genre[0].toUpperCase() + genre.slice(1);
-    if(validGenre.includes(genre)){
-      results = results.filter((app)=>app.Genres.includes(genre));
+    if (validGenre.includes(genre)) {
+      results = results.filter((app) => app.Genres.includes(genre));
 
-    }else{
-      return res.status(400).json({error:"Invalid Params: Genre must be one of 'Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card' "});
+    } 
+    else {
+      return res.status(400).json({ error: "Invalid Params: Genre must be one of 'Action', 'Puzzle', 'Strategy', 'Casual', 'Arcade', 'Card' " });
     }
   }
 
